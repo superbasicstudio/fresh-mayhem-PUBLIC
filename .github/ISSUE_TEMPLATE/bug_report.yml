@@ -1,0 +1,97 @@
+name: Bug Report
+description: Report a bug or unexpected behavior
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      description: What OS are you running Fresh Mayhem on?
+      options:
+        - Linux (Debian/Ubuntu)
+        - Linux (Fedora/RHEL)
+        - Linux (Arch)
+        - Linux (Other)
+        - macOS (Intel)
+        - macOS (Apple Silicon)
+        - Windows 10
+        - Windows 11
+    validations:
+      required: true
+
+  - type: dropdown
+    id: device
+    attributes:
+      label: Device
+      description: Which device are you using?
+      options:
+        - HackRF One
+        - HackRF One + PortaPack H4M
+        - HackRF One + PortaPack (other model)
+        - HackRF One Pro
+        - Other / No device connected
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: App Version
+      description: "Check the BETA badge in the titlebar (e.g., v0.9.2)"
+      placeholder: "v0.9.2"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: install-method
+    attributes:
+      label: Install Method
+      options:
+        - .deb package
+        - .rpm package
+        - .AppImage
+        - .dmg (macOS)
+        - .msi (Windows)
+        - Built from source
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the bug. What did you expect vs what actually happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: How can we reproduce this?
+      placeholder: |
+        1. Open the app
+        2. Click on ...
+        3. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Diagnostic logs (optional)
+      description: "Go to Settings → Diagnostics → Export Logs, paste relevant entries here"
+      render: shell
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots (optional)
+      description: Drag and drop any relevant screenshots
+
+  - type: input
+    id: llm
+    attributes:
+      label: LLM Setup (optional)
+      description: "Provider and model (e.g., Ollama / llama3.2:3b, or None)"
+      placeholder: "Ollama / mistral-small3.1:24b"
